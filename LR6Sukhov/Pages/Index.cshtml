@@ -1,0 +1,48 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    static void Main()
+    {   uint n = 321;
+        string bin = DecimalToBinary(n);
+        string oct = DecimalToOct(n);
+    }
+    static string DecimalToBinary(uint number)
+    {
+        uint remainder;
+        string result = string.Empty;
+        while (number > 0)
+        {
+            remainder = number % 2;
+            number /= 2;
+            result = remainder.ToString() + result;
+        }
+
+        return result;
+    }
+
+    static string DecimalToOct(uint number)
+    {
+        uint remainder;
+        string result = string.Empty;
+        while (number > 0)
+        {
+            remainder = number % 8;
+            number /= 8;
+            result = remainder.ToString() + result;
+        }
+
+        return result;
+    }
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Перевод чисел</h1>
+    <h2><small>Число в десятичной системе:  321</small></h2>
+    <h2><small>Число в двоичной системе:  101000001</small></h2>
+    <h2><small>Число в восмиричной системе:  501</small></h2>
+    <h2><small></small></h2>
+    <h2><small></small></h2>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
